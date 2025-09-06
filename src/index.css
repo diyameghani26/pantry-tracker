@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "diya";
+  src: url("/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf");
+}
