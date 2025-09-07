@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from  "./Components/Navbar.jsx"// ✅ "components" folder name small
 import Home from "./pages/Home";
-import Categories from "./pages/categories"; // ✅ file ka naam bhi capital rakho
+import Categories from "./pages/categories.jsx"; // ✅ file ka naam bhi capital rakho
 import AddItems from "./pages/AddItems";
 import About from "./pages/About";
 import CategoryItems from "./pages/CategoryItems";
