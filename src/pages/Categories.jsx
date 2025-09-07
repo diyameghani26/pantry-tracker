@@ -6,7 +6,7 @@ import { items, categories } from "../data";
 import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-const categories = ({ search }) => {
+const Categories = ({ search }) => {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   const filters = ["All", "Low Stock", "Expiring Soon"];
@@ -113,7 +113,7 @@ const categories = ({ search }) => {
   );
 };
 
-export default categories;
+export default Categories;
 
 
 
