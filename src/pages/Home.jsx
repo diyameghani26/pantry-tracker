@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-screen mt-10 flex flex-col">
+    <div className="w-screen mt-15 flex flex-col">
       {/* ✅ Hero Section (Desktop + Mobile) */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:w-screen  px-6  py-4  ">
         {/* Left Text */}
@@ -35,7 +35,7 @@ transition-transform duration-300 transform hover:scale-105 active:scale-95">
         </div>
 
         {/* Right Image */}
-        <div className="mr-4 w-[220px] md:w-[300px]   md:mt-24 transition-transform duration-300 transform hover:scale-105 active:scale-95">
+        <div className="mr-4 w-[280px] md:w-[300px]   md:mt-24 transition-transform duration-300 transform hover:scale-105 active:scale-95">
           <img
             src="/mobile.jpg"
             alt="Pantry Preview"
