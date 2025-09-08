@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-screen mt-10 flex flex-col">
+    <div className="w-screen mt-2 flex flex-col">
       {/* ✅ Hero Section (Desktop + Mobile) */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:w-screen  px-6  py-4  ">
         {/* Left Text */}
