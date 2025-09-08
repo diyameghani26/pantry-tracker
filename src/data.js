@@ -4,7 +4,6 @@ export const items = [
   // ✅ Essentials
   { id: 1, name: "Salt", category: "Essentials", quantity: 1, minQty: 1, expiryDate: "2027-01-01" },
   { id: 2, name: "Sugar", category: "Essentials", quantity: 2, minQty: 1, expiryDate: "2026-06-01" },
-  { id: 3, name: "Gudh", category: "Essentials", quantity: 1, minQty: 1, expiryDate: "2025-12-01" },
   { id: 21, name: "Oil", category: "Essentials", quantity: 1, minQty: 1, expiryDate: "2026-09-01" },
   { id: 22, name: "Cylinder", category: "Essentials", quantity: 1, minQty: 1, expiryDate: "2027-01-01" },
 

@@ -21,7 +21,7 @@ const Navbar = ({ search, setSearch }) => {
       <NavLink to="/" className="text-xl font-bold">
        <div className="flex items-center gap-2 transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2">
            <i className="ri-home-heart-line text-2xl"></i>
-          <span className="text-lg md:text-xl font-bold font-[diya]">My Pantry Tracker</span>
+          <span className="text-xl mt-1 md:text-xl font-bold font-[diya]">My Pantry Tracker</span>
          </div>
       </NavLink>
      
@@ -49,15 +49,15 @@ const Navbar = ({ search, setSearch }) => {
       </div>
 
    {/* CENTER - Desktop Search */}
-      <div className="hidden md:flex items-center w-1/4 relative">
-        <Search className="w-5 h-5 absolute left-3 text-gray-500 hover:bg-[#e7d7ba]" />
+      <div className="hidden md:flex items-center w-1/4 relative ">
+        <Search className="w-5 h-5 absolute left-3 text-gray-500 " />
         <input
           type="text"
           placeholder="Search categories..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleSearchEnter}
-          className="w-full border border-gray-300 rounded-xl pl-10  pr-3 py-2 outline-none focus:ring-2 focus:ring-[#c5b396]"
+          className="w-full border border-gray-300 rounded-xl pl-10  pr-3 py-2 outline-none focus:ring-2 hover:bg-[#e7d7ba]"
         />
       </div> 
       {/* MOBILE ICONS */}

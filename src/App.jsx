@@ -11,7 +11,7 @@ const App = () => {
   const [search, setSearch] = useState(""); // ✅ Global search state
 
   return (
-    <div className="w-screen h-screen overflow-y-auto text-black bg-[#e7d7ba]">
+    <div className="min-h-screen w-full overflow-y-auto text-black bg-[#e7d7ba] overflow-x-hidden">
       {/* ✅ Navbar me search state pass ho rahi hai */}
       <Navbar search={search} setSearch={setSearch} />
 
