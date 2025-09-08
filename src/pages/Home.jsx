@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-screen mt-7 flex flex-col">
+    <div className="w-screen mt-10 flex flex-col">
       {/* ✅ Hero Section (Desktop + Mobile) */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center md:w-screen  px-6  py-4  ">
         {/* Left Text */}
@@ -20,14 +20,14 @@ const Home = () => {
           </p>
          <div className="flex flex-row md:flex-row items-center justify-center gap-2 mt-3 md:mt-6">
           <Link to="/AddItems">
- <button className="font-bold font-[diya] text-sm md:text-xl bg-[#c5b396] rounded-3xl px-6 py-2 md:px-17 md:py-3 md:whitespace-nowrap md:shadow-md 
+ <button className="font-bold font-[diya] text-xl md:text-xl bg-[#c5b396] rounded-3xl px-6 py-2 md:px-17 md:py-3 md:whitespace-nowrap md:shadow-md 
 transition-transform duration-300 transform hover:scale-105 active:scale-95">
   Get started
 </button>
 </Link>
 
 <Link to="/About">
-  <button className="font-bold font-[diya] text-sm md:text-xl bg-[#c5b396] rounded-3xl px-4 py-2 md:px-13 md:py-3 md:whitespace-nowrap md:shadow-md  transition-transform duration-300 transform hover:scale-105 active:scale-95">
+  <button className="font-bold font-[diya] text-xl md:text-xl bg-[#c5b396] rounded-3xl px-4 py-2 md:px-13 md:py-3 md:whitespace-nowrap md:shadow-md  transition-transform duration-300 transform hover:scale-105 active:scale-95">
     Learn more
   </button>
   </Link>
