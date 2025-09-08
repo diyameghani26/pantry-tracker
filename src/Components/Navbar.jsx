@@ -16,11 +16,11 @@ const Navbar = ({ search, setSearch }) => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md px-4 py-3 flex justify-between items-center">
+    <nav className="w-full bg-white shadow-md px-3 py-2 flex justify-between items-center">
       {/* LEFT - LOGO */}
       <NavLink to="/" className="text-xl font-bold">
-       <div className="flex items-center gap-2">
-           <i className="ri-home-heart-line text-4xl"></i>
+       <div className="flex items-center gap-2 transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2">
+           <i className="ri-home-heart-line text-2xl"></i>
           <span className="text-lg md:text-xl font-bold font-[diya]">My Pantry Tracker</span>
          </div>
       </NavLink>
@@ -29,15 +29,28 @@ const Navbar = ({ search, setSearch }) => {
 
       {/* RIGHT - Desktop Nav */}
       <div className="hidden md:flex items-center  text-xl gap-6   font-[diya] font-bold ">
-        <NavLink to="/">Home</NavLink> 
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/categories">Categories</NavLink>
-        <NavLink to="/additems">Add Items</NavLink>
+       <NavLink
+  className={(e) =>
+    `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`
+  }
+  to="/"
+>
+  Home
+</NavLink> 
+        <NavLink 
+        className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+        to="/about">About</NavLink>
+        <NavLink 
+        className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+        to="/categories">Categories</NavLink>
+        <NavLink
+        className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+        to="/additems">Add Items</NavLink>
       </div>
 
    {/* CENTER - Desktop Search */}
       <div className="hidden md:flex items-center w-1/4 relative">
-        <Search className="w-5 h-5 absolute left-3 text-gray-500" />
+        <Search className="w-5 h-5 absolute left-3 text-gray-500 hover:bg-[#e7d7ba]" />
         <input
           type="text"
           placeholder="Search categories..."
@@ -64,7 +77,7 @@ const Navbar = ({ search, setSearch }) => {
       {/* ✅ MOBILE SEARCH SLIDE-IN */}
       {mobileSearchOpen && (
         <div className="absolute top-0 left-0 w-full h-full bg-white shadow-2xl p-4 flex flex-col gap-4 z-50 animate-slideDown">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2">
             <span className="font-bold text-lg">Search</span>
             <X
               className="w-6 h-6 cursor-pointer"
@@ -92,17 +105,25 @@ const Navbar = ({ search, setSearch }) => {
             />
           </div>
 
-          <div className="flex flex-col items-center gap-4">
-            <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>
+          <div className="flex  font-[diya] flex-col items-center gap-4">
+            <NavLink 
+            className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+            to="/" onClick={() => setMobileMenuOpen(false)}>
               Home
             </NavLink>
-            <NavLink to="/about" onClick={() => setMobileMenuOpen(false)}>
+            <NavLink 
+            className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+            to="/about" onClick={() => setMobileMenuOpen(false)}>
               About
             </NavLink>
-            <NavLink to="/categories" onClick={() => setMobileMenuOpen(false)}>
+            <NavLink 
+            className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+            to="/categories" onClick={() => setMobileMenuOpen(false)}>
               Categories
             </NavLink>
-            <NavLink to="/additems" onClick={() => setMobileMenuOpen(false)}>
+            <NavLink
+            className={(e)=>   `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`}
+            to="/additems" onClick={() => setMobileMenuOpen(false)}>
               Add Items
             </NavLink>
           </div>

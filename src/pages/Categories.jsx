@@ -2,7 +2,7 @@
 
 
 import React, { useState } from "react";
-import { items, categories } from "../data";
+import { items, categories } from "../data.js";
 import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
@@ -60,7 +60,7 @@ const Categories = ({ search }) => {
           <select
             value={selectedFilter}
             onChange={(e) => setSelectedFilter(e.target.value)}
-            className="appearance-none border rounded-full w-full pl-4 pr-10 py-2 bg-white shadow-sm cursor-pointer focus:outline-none"
+            className="appearance-none border rounded-full w-full pl-4 pr-10 py-2 bg-white shadow-md cursor-pointer hover:scale-105 focus:outline-none"
           >
             {filters.map((f) => (
               <option key={f} value={f}>
@@ -74,7 +74,7 @@ const Categories = ({ search }) => {
 
       {/* ✅ Filtered Category List */}
       {filteredCategories.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+        <div className="md:ml-6 grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
           {filteredCategories.map((cat) => {
             const isLowStock = lowStockCategories.includes(cat.name);
             const isExpiring = expiringCategories.includes(cat.name);
@@ -83,7 +83,7 @@ const Categories = ({ search }) => {
               <Link
                 key={cat.id}
                 to={`/category/${cat.name}`}
-                className="relative border rounded-xl p-4 flex flex-col items-center shadow-md cursor-pointer transition md:h-40 md:w-96 bg-white hover:bg-[#e7d7ba] active:bg-[#e7d7ba]"
+                className="relative border rounded-xl p-4 flex flex-col items-center shadow-md cursor-pointer transition md:h-40 md:w-96 bg-white active:bg-[#d5be93] hover:bg-[#e7d7ba]"
               >
                 {/* ✅ Badge */}
                 {(isLowStock || isExpiring) && (
