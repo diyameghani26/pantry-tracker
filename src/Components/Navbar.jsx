@@ -27,7 +27,7 @@ const Navbar = ({ search, setSearch }) => {
      
 
 
-      {/* RIGHT - Desktop Nav */}
+      {/* center - Desktop Nav */}
       <div className="hidden md:flex items-center  text-xl gap-6   font-[diya] font-bold ">
        <NavLink
   className={(e) =>
@@ -48,7 +48,7 @@ const Navbar = ({ search, setSearch }) => {
         to="/additems">Add Items</NavLink>
       </div>
 
-   {/* CENTER - Desktop Search */}
+   {/* right - Desktop Search */}
       <div className="hidden md:flex items-center w-1/4 relative ">
         <Search className="w-5 h-5 absolute left-3 text-gray-500 " />
         <input

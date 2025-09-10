@@ -1,47 +1,51 @@
+
 // import React, { useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
-// import SearchBar from "./SearchBar";
+// import { X } from "lucide-react";
 
-// const CategoryItems = () => {
+// const CategoryItems = ({ items }) => {  // ✅ items prop from App.jsx
 //   const { categoryName } = useParams();
-
-//   const [items, setItems] = useState([]);
 //   const [search, setSearch] = useState("");
 //   const [filteredItems, setFilteredItems] = useState([]);
 
-//   // Load items from localStorage
+//   // Filter items by category and search
 //   useEffect(() => {
-//     const savedItems = JSON.parse(localStorage.getItem("pantryItems")) || [];
-//     setItems(savedItems);
-//   }, []);
-
-//   // Filter on search or category change
-//   useEffect(() => {
-//     let categoryFiltered = items.filter(
+//     const categoryFiltered = items.filter(
 //       (item) => item.category.toLowerCase() === categoryName.toLowerCase()
 //     );
 
-//     if (search.trim() !== "") {
-//       categoryFiltered = categoryFiltered.filter((item) =>
-//         item.name.toLowerCase().includes(search.toLowerCase())
-//       );
-//     }
+//     const finalFiltered = search.trim()
+//       ? categoryFiltered.filter((item) =>
+//           item.name.toLowerCase().includes(search.toLowerCase())
+//         )
+//       : categoryFiltered;
 
-//     setFilteredItems(categoryFiltered);
+//     setFilteredItems(finalFiltered);
 //   }, [items, categoryName, search]);
 
 //   return (
 //     <div className="p-4 md:p-6 max-w-2xl mx-auto">
-//       <h1 className="text-xl md:text-3xl font-bold mb-4 text-center capitalize">
+//       <h1 className="text-2xl md:text-5xl font-bold mb-9 text-center capitalize">
 //         {categoryName} Items
 //       </h1>
 
-//       <div className="flex justify-center mb-4">
-//         <SearchBar
+//       {/* Search Bar */}
+//       <div className="flex justify-center mb-10 relative w-full max-w-xs mx-auto">
+//         <input
+//           type="text"
+//           placeholder="Search items..."
 //           value={search}
-//           onChange={setSearch}
-//           onClear={() => setSearch("")}
+//           onChange={(e) => setSearch(e.target.value)}
+//           className="w-full border border-gray-900 rounded-xl pl-10 pr-3 py-2 outline-none focus:ring-2 focus:ring-[#c5b396]"
 //         />
+//         {search && (
+//           <button
+//             onClick={() => setSearch("")}
+//             className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-700 hover:text-black"
+//           >
+//             <X size={19} />
+//           </button>
+//         )}
 //       </div>
 
 //       {filteredItems.length > 0 ? (
@@ -49,11 +53,11 @@
 //           {filteredItems.map((item) => (
 //             <li
 //               key={item.id}
-//               className="border p-3 rounded-lg flex justify-between items-center shadow-sm hover:shadow-md transition"
+//               className="border transition-transform duration-300 transform hover:scale-105 active:scale-95 bg-white p-3 rounded-lg flex justify-between items-center shadow-sm hover:shadow-md"
 //             >
 //               <span className="text-gray-800 font-medium">{item.name}</span>
 //               <span className="text-sm md:text-lg text-gray-600">
-//                 Qty: {item.quantity} 
+//                 Qty: {item.quantity} {item.unit || ""}
 //               </span>
 //             </li>
 //           ))}
@@ -69,36 +73,31 @@
 
 // export default CategoryItems;
 
+
+
+// src/pages/CategoryItems.jsx
 import React, { useState, useEffect } from "react";
-import { data, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { X } from "lucide-react";
-import { items as pantryItems } from "../data.js"; // ✅ CHANGE 1 - import from data.js
 
-const CategoryItems = () => {
+const CategoryItems = ({ items }) => {
   const { categoryName } = useParams();
-
-  const [items, setItems] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
 
-  // ✅ CHANGE 2 - Load directly from data.js
+  // ✅ Filter items by category + search
   useEffect(() => {
-    setItems(pantryItems);
-  }, []);
-
-  // Filter on search or category change
-  useEffect(() => {
-    let categoryFiltered = items.filter(
+    const categoryFiltered = items.filter(
       (item) => item.category.toLowerCase() === categoryName.toLowerCase()
     );
 
-    if (search.trim() !== "") {
-      categoryFiltered = categoryFiltered.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
+    const finalFiltered = search.trim()
+      ? categoryFiltered.filter((item) =>
+          item.name.toLowerCase().includes(search.toLowerCase())
+        )
+      : categoryFiltered;
 
-    setFilteredItems(categoryFiltered);
+    setFilteredItems(finalFiltered);
   }, [items, categoryName, search]);
 
   return (
@@ -107,14 +106,14 @@ const CategoryItems = () => {
         {categoryName} Items
       </h1>
 
-      {/* Search Bar */}
+      {/* 🔎 Search Bar */}
       <div className="flex justify-center mb-10 relative w-full max-w-xs mx-auto">
         <input
           type="text"
           placeholder="Search items..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full border border-gray-900 rounded-xl pl-10 pr-3 py-2 outline-none focus:ring-2 focus:ring-[#c5b396]"
+          className="w-full border border-gray-900 rounded-xl pl-10 pr-3 py-2 outline-none focus:ring-2 focus:ring-[#c5b396] transition"
         />
         {search && (
           <button
@@ -126,19 +125,18 @@ const CategoryItems = () => {
         )}
       </div>
 
+      {/* 📋 Item List */}
       {filteredItems.length > 0 ? (
         <ul className="space-y-3">
           {filteredItems.map((item) => (
-            <li
-              key={item.id}
-              className="border transition-transform duration-300 transform hover:scale-105 active:scale-95 bg-white p-3 rounded-lg flex justify-between items-center shadow-sm hover:shadow-md "
-            >
-              <span className="text-gray-800 font-medium">{item.name}</span>
-              {/* ✅ CHANGE 3 - quantity + unit show */}
-              <span className="text-sm md:text-lg text-gray-600">
-                Qty: {item.quantity} {item.unit || ""}
-              </span>
-            </li>
+            <Link key={item.id} to={`/item/${item.id}`}>
+              <li className="border transition-transform duration-200 transform hover:scale-105 active:scale-95 bg-white mb-3 p-3 rounded-lg flex justify-between items-center shadow-sm hover:shadow-md cursor-pointer">
+                <span className="text-gray-800 font-medium">{item.name}</span>
+                <span className="text-sm md:text-lg text-gray-600">
+                  Qty: {item.quantity} {item.unit || ""}
+                </span>
+              </li>
+            </Link>
           ))}
         </ul>
       ) : (
@@ -151,6 +149,4 @@ const CategoryItems = () => {
 };
 
 export default CategoryItems;
-
-
 
