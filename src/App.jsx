@@ -134,35 +134,6 @@ const App = () => {
     setItems((prev) => prev.filter((item) => item.id !== itemId));
   };
 
-// import React, { useState } from "react";
-// import { Routes, Route } from "react-router-dom";
-// import { Toaster } from "react-hot-toast";
-
-// import Navbar from "./Components/Navbar.jsx";
-// import Home from "./pages/Home.jsx";
-// import About from "./pages/About.jsx";
-// import Categories from "./pages/Categories.jsx";
-// import AddItems from "./pages/AddItems.jsx";
-// import CategoryItems from "./pages/CategoryItems.jsx";
-// // ❌ ItemDetails ka import hata diya
-
-// const App = () => {
-//   const [items, setItems] = useState([]);
-//   const [search, setSearch] = useState("");
-
-//   const handleAddItem = (newItem) => {
-//     setItems([...items, { ...newItem, id: Date.now() }]);
-//   };
-
-//   const handleUpdateItem = (updatedItem) => {
-//     setItems((prevItems) =>
-//       prevItems.map((item) => (item.id === updatedItem.id ? updatedItem : item))
-//     );
-//   };
-
-//   const handleDeleteItem = (id) => {
-//     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-//   };
 
   return (
     <div className="min-h-screen w-full text-black bg-[#e7d7ba]">

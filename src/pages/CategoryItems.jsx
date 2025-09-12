@@ -265,10 +265,10 @@ return (
                 />
 
                 {/* Save / Cancel */}
-                <div className="flex gap-39 justify-end">
+                <div className="flex gap-39 md:gap-[420px] justify-end">
                   <button
                     onClick={handleSave}
-                    className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+                    className="bg-green-500 text-white px-7 py-2 rounded-lg hover:bg-green-600 transition"
                   >
                     Save
                   </button>
