@@ -41,7 +41,7 @@ const Home = () => {
 
         {/* RIGHT IMAGE */}
         <div className="flex-1  flex justify-center md:justify-end">
-          <div className="  bg-[#f7f2ea]  w-[320px] sm:w-[380px] md:w-[450px] lg:w-[520px] h-[290px] md:h-[370px] lg:h-[490px] p-3 rounded-3xl">
+          <div className="  bg-[#f7f2ea]  w-[340px] sm:w-[380px] md:w-[450px] lg:w-[520px] h-[320px] md:h-[370px] lg:h-[490px] p-3 rounded-3xl">
             <img
               src="/pantry.png"
               alt="Pantry Preview"
