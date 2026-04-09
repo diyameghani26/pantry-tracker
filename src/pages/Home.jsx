@@ -64,7 +64,7 @@ const Home = () => {
         <div className="flex-1 max-w-xl text-start md:text-left">
  
           <h1 className="font-[diya] font-semibold text-3xl sm:text-5xl md:text-6xl text-[#2d2d2d] leading-tight">
-            Never run out <br /> of your essentials <br /> again
+            Never run out  of your essentials  again
           </h1>
 
           <p className="text-[#6b6b6b] mt-4 text-base md:text-lg leading-relaxed">
