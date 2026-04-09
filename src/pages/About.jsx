@@ -56,7 +56,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-[#e7d7ba] flex flex-col items-center justify-center px-3 py-4">
+    <div className="bg-gradient-to-b from-[#f5efe6] to-[#efe6d8] flex flex-col items-center justify-center px-3 py-4">
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 text-center md:mt-7 mt-12">
         <h1 className="text-xl sm:text-3xl font-bold mb-3 text-[#5a4634]">
           About My Pantry Tracker

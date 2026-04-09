@@ -136,7 +136,7 @@ const App = () => {
 
 
   return (
-    <div className="min-h-screen w-full text-black bg-[#e7d7ba]">
+    <div className="min-h-screen w-full text-black bg-gradient-to-b from-[#f5efe6] to-[#efe6d8]">
       <Navbar search={search} setSearch={setSearch} />
       <Toaster position="top-center" />
 

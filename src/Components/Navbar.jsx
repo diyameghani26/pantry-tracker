@@ -16,19 +16,19 @@ const Navbar = ({ search, setSearch }) => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md px-3 py-2 flex justify-between items-center">
+    <nav className="w-full bg-[#efe6d8] shadow-md px-3 py-2 flex justify-between items-center">
       {/* LEFT - LOGO */}
-      <NavLink to="/" className="text-xl font-bold">
+      <NavLink to="/" className="text-xl ">
        <div className="flex items-center gap-2 transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2">
-           <i className="ri-home-heart-line text-2xl"></i>
-          <span className="text-xl mt-1 md:text-xl font-bold font-[diya]">My Pantry Tracker</span>
+           <i className="ri-home-heart-line text-xl"></i>
+          <span className="text-xl mt-1 md:text-xl  font-[diya]">Pantry Tracker</span>
          </div>
       </NavLink>
      
 
 
       {/* center - Desktop Nav */}
-      <div className="hidden md:flex items-center  text-xl gap-6   font-[diya] font-bold ">
+      <div className="hidden md:flex items-center  text-xl gap-6   font-[diya]  ">
        <NavLink
   className={(e) =>
     `transition-transform duration-300 transform hover:scale-105 active:scale-95 hover:bg-[#e7d7ba] rounded-xl p-2 ${e.isActive ? " font-bold" : ""}`
