@@ -101,7 +101,7 @@ const AddItems = ({ onAdd, categories }) => {
               placeholder="Item Name"
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-500 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             />
 
             {/* Quantity + Unit */}
@@ -113,12 +113,12 @@ const AddItems = ({ onAdd, categories }) => {
                 placeholder="Quantity"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-                className="w-2/3 border border-gray-200 rounded-xl px-4  p py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+                className="w-2/3 border border-gray-500 rounded-xl px-4  p py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
               />
               <select
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
-                className="w-1/3 border border-gray-200 rounded-xl px-3 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+                className="w-1/3 border border-gray-500 rounded-xl px-3 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
               >
                 <option value="kg">kg</option>
                 <option value="g">g</option>
@@ -133,7 +133,7 @@ const AddItems = ({ onAdd, categories }) => {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-500 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             >
               <option value="">Select Category</option>
               {categories.map((cat) => (
@@ -149,7 +149,7 @@ const AddItems = ({ onAdd, categories }) => {
               value={expiryDate}
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setExpiryDate(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-500 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none text-black"
             />
 
             {/* Buttons */}
