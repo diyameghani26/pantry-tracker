@@ -73,7 +73,7 @@ const AddItems = ({ onAdd, categories }) => {
       {/* RIGHT SIDE FORM */}
       <div className="w-full lg:w-1/2 flex justify-center items-center px-4 py-10 ">
 
-        <div className="w-full bg-red-200  max-w-md lg:max-w-lg shadow-xl rounded-2xl px-6 py-5 relative top-0 -mt-24">
+        <div className="w-full h-10/12 -mt-30   max-w-md lg:max-w-lg rounded-2xl px-6 py-4 relative top-0 ">
 
           {/* Toast */}
           {successMsg && (
@@ -83,11 +83,11 @@ const AddItems = ({ onAdd, categories }) => {
           )}
 
           {/* Header */}
-          <div className="text-center mb-6 lg:mb-5">
-            <h1 className="text-2xl lg:text-3xl sm:text-3xl font-bold text-green-700">
+          <div className="text-center mb-10 mt-4 lg:mb-5">
+            <h1 className="text-3xl lg:text-3xl sm:text-3xl font-bold text-green-700">
               Add New Item
             </h1>
-            <p className="text-gray-500 lg:text-xl text-sm mt-1 lg:mt-5">
+            <p className="text-gray-500 lg:text-xl text-xl mt-3 lg:mt-5">
               Fill details to add item to pantry
             </p>
           </div>
@@ -101,7 +101,7 @@ const AddItems = ({ onAdd, categories }) => {
               placeholder="Item Name"
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             />
 
             {/* Quantity + Unit */}
@@ -113,12 +113,12 @@ const AddItems = ({ onAdd, categories }) => {
                 placeholder="Quantity"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-                className="w-2/3 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+                className="w-2/3 border border-gray-200 rounded-xl px-4  p py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
               />
               <select
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
-                className="w-1/3 border border-gray-200 rounded-xl px-3 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+                className="w-1/3 border border-gray-200 rounded-xl px-3 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
               >
                 <option value="kg">kg</option>
                 <option value="g">g</option>
@@ -133,7 +133,7 @@ const AddItems = ({ onAdd, categories }) => {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             >
               <option value="">Select Category</option>
               {categories.map((cat) => (
@@ -149,11 +149,11 @@ const AddItems = ({ onAdd, categories }) => {
               value={expiryDate}
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setExpiryDate(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              className="w-full border border-gray-200 rounded-xl px-4 py-6 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             />
 
             {/* Buttons */}
-            <div className="flex flex-col gap-3 pt-4">
+            <div className="flex flex-col gap-3 pt-8">
               <button
                  onClick={() => navigate("/")}
                 type="submit"
