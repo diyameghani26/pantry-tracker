@@ -7,7 +7,7 @@ const Home = () => {
     <div className="w-full min-h-screen bg-gradient-to-b from-[#f5efe6] to-[#efe6d8] flex flex-col">
 
       {/* ================= HERO SECTION ================= */}
-      <div className="  flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto w-full px-6 md:px-10 lg:px-16 py-5 md:py-20 gap-10">
+      <div className="  flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto w-full px-6 md:px-10 lg:px-16 py-5 md:py-20 gap-10 md:gap-20">
 
         {/* LEFT TEXT */}
         <div className="flex-1 max-w-xl text-start md:text-left">
@@ -96,7 +96,7 @@ const Home = () => {
           </div>
 
           <div className="bg-[#dfe5db] rounded-3xl p-6 md:p-8 shadow-sm">
-            <i class="ri-file-list-3-line text-3xl"></i>
+            <i className="ri-file-list-3-line text-3xl"></i>
             <h3 className="text-xl md:text-2xl font-semibold text-[#2d2d2d]">
               Auto Lists
             </h3>

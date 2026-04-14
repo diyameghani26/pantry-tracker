@@ -1,7 +1,12 @@
 
+
+
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddItems = ({ onAdd, categories }) => {
+  const navigate = useNavigate();
+
   const [itemName, setItemName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("kg");
@@ -25,15 +30,20 @@ const AddItems = ({ onAdd, categories }) => {
       expiryDate,
     };
 
-    // ✅ Update parent App.jsx state
     if (onAdd) onAdd(newItem);
 
-    // ✅ Also update localStorage
-    const existingItems = JSON.parse(localStorage.getItem("pantryItems")) || [];
-    const updatedItems = [...existingItems, { ...newItem, id: Date.now() }];
+    const existingItems =
+      JSON.parse(localStorage.getItem("pantryItems")) || [];
+
+    const updatedItems = [
+      ...existingItems,
+      { ...newItem, id: Date.now() },
+    ];
+
     localStorage.setItem("pantryItems", JSON.stringify(updatedItems));
 
-    setSuccessMsg("✅ Item added successfully!");
+    setSuccessMsg("Item added successfully!");
+
     setItemName("");
     setQuantity("");
     setUnit("kg");
@@ -44,118 +54,128 @@ const AddItems = ({ onAdd, categories }) => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-18 sm:mt-10 px-4">
-      <div className="bg-white shadow-lg rounded-xl p-5 sm:p-8 w-full max-w-lg md:h-[420px] md:mt-15 relative">
-        <h1 className="text-xl sm:text-3xl font-bold text-center mb-2">Add New Item</h1>
-        <p className="text-gray-600 text-center mb-5 text-sm sm:text-base">
-          Fill details to add item to pantry
-        </p>
+    <div className="min-h-screen bg-gradient-to-br bg-[#e8d8c3] to-green-50 flex">
 
-        {/* Success Toast */}
-        {successMsg && (
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-green-100 text-green-800 px-3 py-2 rounded-lg shadow-md text-xs sm:text-sm animate-fadeIn">
-            {successMsg}
+      {/* LEFT SIDE (Desktop Only) */}
+      <div className="hidden lg:flex w-1/2 relative items-center justify-center p-12">
+        <div className="absolute w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-30"></div>
+
+        <div className="max-w-md ">
+          <h1 className="text-4xl sm:text-6xl font-bold text-green-700 mb-4">
+            Manage Your Pantry 🥦
+          </h1>
+          <p className="text-gray-600 text-lg sm:text-3xl">
+            Add items, track expiry dates and keep your kitchen organized in a smart and efficient way.
+          </p>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE FORM */}
+      <div className="w-full lg:w-1/2 flex justify-center items-center px-4 py-10">
+
+        <div className="w-full -mt-14 max-w-md lg:max-w-lg bg-white shadow-xl rounded-2xl px-6 py-8 relative">
+
+          {/* Toast */}
+          {successMsg && (
+            <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-green-100 text-green-700 px-4 py-2 rounded-full shadow-md text-sm animate-slideDown z-50">
+              ✅ {successMsg}
+            </div>
+          )}
+
+          {/* Header */}
+          <div className="text-center mb-6 lg:mb-5">
+            <h1 className="text-2xl lg:text-3xl sm:text-3xl font-bold text-green-700">
+              Add New Item
+            </h1>
+            <p className="text-gray-500 lg:text-xl text-sm mt-1 lg:mt-5">
+              Fill details to add item to pantry
+            </p>
           </div>
-        )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Item Name */}
-          <div>
-            <label className="block text-sm font-medium mb-1">Item Name</label>
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-5 lg:space-y-7">
+
+            {/* Item Name */}
             <input
               type="text"
-              placeholder="e.g. Rice, Sugar"
+              placeholder="Item Name"
               value={itemName}
               onChange={(e) => setItemName(e.target.value)}
-              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             />
-          </div>
 
-          {/* Quantity + Unit + Category */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Quantity + Unit */}
-            <div>
-              <label className="block text-sm font-medium mb-1">Quantity</label>
-              <div className="flex gap-2">
-                <input
-                  type="number"
-                  min="0"
-                  step="0.1"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  className="w-2/3 border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
-                />
-                <select
-                  value={unit}
-                  onChange={(e) => setUnit(e.target.value)}
-                  className="w-1/3 border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
-                >
-                  <option value="kg">kg</option>
-                  <option value="g">g</option>
-                  <option value="L">L</option>
-                  <option value="ml">ml</option>
-                  <option value="pcs">pcs</option>
-                  <option value="packet">pac</option>
-                </select>
-              </div>
+            <div className="flex gap-3">
+              <input
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                className="w-2/3 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              />
+              <select
+                value={unit}
+                onChange={(e) => setUnit(e.target.value)}
+                className="w-1/3 border border-gray-200 rounded-xl px-3 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+              >
+                <option value="kg">kg</option>
+                <option value="g">g</option>
+                <option value="L">L</option>
+                <option value="ml">ml</option>
+                <option value="pcs">pcs</option>
+                <option value="packet">pac</option>
+              </select>
             </div>
 
             {/* Category */}
-            <div>
-              <label className="block text-sm font-medium mb-1">Category</label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
-              >
-                <option value="">Select</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.name.toLowerCase()}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
+            >
+              <option value="">Select Category</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.name.toLowerCase()}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
 
-          {/* Expiry Date */}
-          <div>
-            <label className="block text-sm font-medium mb-1">Expiry Date</label>
+            {/* Expiry */}
             <input
               type="date"
               value={expiryDate}
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setExpiryDate(e.target.value)}
-              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-green-400 outline-none"
             />
-          </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-between mt-4">
-            <button
-              type="button"
-              onClick={() => {
-                setItemName("");
-                setQuantity("");
-                setUnit("kg");
-                setCategory("");
-                setExpiryDate("");
-              }}
-              className="px-4 py-2 md:mt-3 rounded-md bg-gray-200 hover:bg-gray-300 text-sm"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 md:mt-3 rounded-md bg-green-600 text-white hover:bg-green-700 text-sm"
-            >
-              Save Item
-            </button>
-          </div>
-        </form>
+            {/* Buttons */}
+            <div className="flex flex-col gap-3 pt-4">
+              <button
+                 onClick={() => navigate("/")}
+                type="submit"
+                className="w-full py-3 rounded-xl bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+              >
+                Save Item
+              </button>
+
+              <button
+                type="button"
+                onClick={() => navigate("/")}
+                className="w-full py-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition text-sm"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
 export default AddItems;
+
