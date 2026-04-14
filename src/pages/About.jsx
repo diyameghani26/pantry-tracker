@@ -1,52 +1,95 @@
 
 
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-gradient-to-b from-[#f5efe6] to-[#efe6d8] flex flex-col items-center justify-center px-3 py-4">
-      <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-4 sm:p-6 text-center md:mt-7 mt-12">
-        <h1 className="text-xl sm:text-3xl font-bold mb-3 text-[#5a4634]">
-          About My Pantry Tracker
-        </h1>
+    <div className="min-h-screenbg-gradient-to-b from-[#f5efe6] to-[#efe6d8]   px-4 py-10">
 
-        <p className="italic text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
-          Managing kitchen items can be stressful — kabhi sugar khatam ho jaye,
-          kabhi maggie packet missing ho, ya expiry date nikal jaye. Pantry
-          Tracker aapko help karta hai apne ghar ka ration track karne me —{" "}
-          <span className="font-semibold">
-            category wise, quantity wise, aur expiry date wise
-          </span>.
-        </p>
+      {/* Container */}
+      <div className="max-w-5xl mx-auto space-y-12">
 
-        <h2 className="text-base sm:text-xl font-semibold mb-3 text-[#5a4634]">
-          💡 What You Can Do Is:
-        </h2>
-        <ul className="text-gray-700 space-y-2 text-left text-sm sm:text-base mb-4">
-          <li>➤ Add your items with quantity & expiry date</li>
-          <li>➤ Track which items are running low</li>
-          <li>➤ Get alerts for items expiring soon</li>
-          <li>➤ Quickly search anything from your pantry</li>
-        </ul>
+        {/* Hero Section */}
+        <div className="text-center space-y-4 sm:space-y-6 md:space-y-6 lg:space-y-10">
+          <h1 className="text-3xl sm:text-5xl font-bold text-[#4f3002]">
+            About Pantry Tracker 
+          </h1>
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+            A smart and simple way to manage your kitchen items, track expiry dates, and reduce food waste effortlessly.
+          </p>
+        </div>
 
-        <p className="text-gray-700 text-sm sm:text-base mb-4">
-          Pantry Tracker banaya gaya hai taaki aapka kitchen hamesha stocked
-          rahe aur aapka time bache. Simple design, easy-to-use features aur
-          mobile-friendly experience — sab ek jagah.
-        </p>
+        {/* Card Section */}
+        <div className="grid md:grid-cols-3 gap-6">
 
-        <p className="italic text-gray-600 text-sm sm:text-base">
-          Hi! I’m <span className="font-semibold">Diya 👋</span>, a developer who
-          built this website for people like me who always forget what’s left in
-          the kitchen 😅. I hope this helps you stay organized and save time
-          while grocery shopping.
-        </p>
+          {/* Card 1 */}
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="text-3xl mb-3 text-green-600">
+              🧺
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Easy Management</h2>
+            <p className="text-gray-500 text-sm">
+              Add, update and organize pantry items with a clean and intuitive interface.
+            </p>
+          </div>
 
-      <div className="whitespace-nowrap bg-yellow-100 rounded-lg shadow-md mt-3 py-1 px-1 overflow-hidden">
-  <p className="inline-block text-gray-800 font-semibold animate-pulse text-sm sm:text-base">
-    🚀 Coming Soon: Notifications & Shopping List Feature
-  </p>
-</div>
+          {/* Card 2 */}
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="text-3xl mb-3 text-green-600">
+              ⏳
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Track Expiry</h2>
+            <p className="text-gray-500 text-sm">
+              Keep track of expiry dates and avoid wasting food with smart tracking.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="text-3xl mb-3 text-green-600">
+              📱
+            </div>
+            <h2 className="text-xl font-semibold mb-2">Responsive Design</h2>
+            <p className="text-gray-500 text-sm">
+              Works smoothly across mobile, tablet and desktop for a seamless experience.
+            </p>
+          </div>
+
+        </div>
+
+        {/* About You Section */}
+        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md flex flex-col md:flex-row items-center gap-6">
+
+          {/* Avatar */}
+          <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center text-3xl text-green-600">
+            D
+          </div>
+
+          {/* Content */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+              Created by Diya ✨
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base">
+              Passionate frontend developer building modern and user-friendly web applications. 
+              This project is designed to solve real-life problems with a clean UI and smooth experience.
+            </p>
+          </div>
+
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <button
+           onClick={() => navigate("/additems")}
+          className="px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-300">
+            Start Managing Your Pantry 🚀
+          </button>
+        </div>
+
       </div>
     </div>
   );
