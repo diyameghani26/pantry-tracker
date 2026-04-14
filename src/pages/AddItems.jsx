@@ -155,7 +155,7 @@ const AddItems = ({ onAdd, categories }) => {
             {/* Buttons */}
             <div className="flex flex-col gap-3 pt-8">
               <button
-                 onClick={() => navigate("/")}
+                 onClick={() => navigate("/categories")}
                 type="submit"
                 className="w-full py-3 rounded-xl bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-300 text-sm"
               >
