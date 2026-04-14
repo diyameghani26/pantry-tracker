@@ -71,9 +71,9 @@ const AddItems = ({ onAdd, categories }) => {
       </div>
 
       {/* RIGHT SIDE FORM */}
-      <div className="w-full lg:w-1/2 flex justify-center items-center px-4 py-10">
+      <div className="w-full lg:w-1/2 flex justify-center items-center px-4 py-10 ">
 
-        <div className="w-full -mt-14 max-w-md lg:max-w-lg bg-white shadow-xl rounded-2xl px-6 py-8 relative">
+        <div className="w-full bg-red-200  max-w-md lg:max-w-lg shadow-xl rounded-2xl px-6 py-5 relative top-0 -mt-24">
 
           {/* Toast */}
           {successMsg && (
